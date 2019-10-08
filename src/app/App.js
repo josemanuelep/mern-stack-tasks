@@ -23,7 +23,7 @@ class App extends Component {
 
   addTask(e) {
     e.preventDefault();
-    if(this.state._id) {
+    if (this.state._id) {
       fetch(`/api/tasks/${this.state._id}`, {
         method: 'PUT',
         body: JSON.stringify({
@@ -37,8 +37,8 @@ class App extends Component {
       })
         .then(res => res.json())
         .then(data => {
-          window.M.toast({html: 'Task Updated'});
-          this.setState({_id: '', title: '', description: ''});
+          window.M.toast({ html: 'Task Updated' });
+          this.setState({ _id: '', title: '', description: '' });
           this.fetchTasks();
         });
     } else {
@@ -53,8 +53,8 @@ class App extends Component {
         .then(res => res.json())
         .then(data => {
           console.log(data);
-          window.M.toast({html: 'Task Saved'});
-          this.setState({title: '', description: ''});
+          window.M.toast({ html: 'Task Saved' });
+          this.setState({ title: '', description: '' });
           this.fetchTasks();
         })
         .catch(err => console.error(err));
@@ -63,7 +63,7 @@ class App extends Component {
   }
 
   deleteTask(id) {
-    if(confirm('Are you sure you want to delete it?')) {
+    if (confirm('Are you sure you want to delete it?')) {
       fetch(`/api/tasks/${id}`, {
         method: 'DELETE',
         headers: {
@@ -74,7 +74,7 @@ class App extends Component {
         .then(res => res.json())
         .then(data => {
           console.log(data);
-          M.toast({html: 'Task deleted'});
+          M.toast({ html: 'Task deleted' });
           this.fetchTasks();
         });
     }
@@ -101,7 +101,7 @@ class App extends Component {
     fetch('/api/tasks')
       .then(res => res.json())
       .then(data => {
-        this.setState({tasks: data});
+        this.setState({ tasks: data });
         console.log(this.state.tasks);
       });
   }
@@ -126,7 +126,7 @@ class App extends Component {
                   <form onSubmit={this.addTask}>
                     <div className="row">
                       <div className="input-field col s12">
-                        <input name="title" onChange={this.handleChange} value={this.state.title} type="text" placeholder="Task Title" autoFocus/>
+                        <input name="title" onChange={this.handleChange} value={this.state.title} type="text" placeholder="Task Title" autoFocus />
                       </div>
                     </div>
                     <div className="row">
@@ -136,7 +136,7 @@ class App extends Component {
                     </div>
 
                     <button type="submit" className="btn light-blue darken-4">
-                      Send 
+                      Send
                     </button>
                   </form>
                 </div>
@@ -151,7 +151,7 @@ class App extends Component {
                   </tr>
                 </thead>
                 <tbody>
-                  { 
+                  {
                     this.state.tasks.map(task => {
                       return (
                         <tr key={task._id}>
@@ -159,9 +159,9 @@ class App extends Component {
                           <td>{task.description}</td>
                           <td>
                             <button onClick={() => this.deleteTask(task._id)} className="btn light-blue darken-4">
-                              <i className="material-icons">delete</i> 
+                              <i className="material-icons">delete</i>
                             </button>
-                            <button onClick={() => this.editTask(task._id)} className="btn light-blue darken-4" style={{margin: '4px'}}>
+                            <button onClick={() => this.editTask(task._id)} className="btn light-blue darken-4" style={{ margin: '4px' }}>
                               <i className="material-icons">edit</i>
                             </button>
                           </td>
