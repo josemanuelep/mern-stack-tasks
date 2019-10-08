@@ -17,6 +17,14 @@ const TuristSchema = new Schema({
     },
     visited_places: [
         { type: Schema.Types.ObjectId, ref: 'Turist_places' }
+    ],
+    bonus: [
+        {
+            name: String,
+            evidence: String,
+            checkinEnabled: Boolean,
+            turistPlace: { type: Schema.Types.ObjectId, ref: 'Turist_places' }
+        }
     ]
 });
 
