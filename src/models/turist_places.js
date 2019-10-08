@@ -7,6 +7,7 @@ const turist_place_Schema = new Schema({
     place_type: { type: String, required: true },
     desciption: { type: String, required: true },
     mail: { type: String, required: true },
+    password: { type: String, required: true },
     phone_number: { type: Number, required: true },
     cost: { type: Number, required: true },
     activities: [{ type: String }],
@@ -31,17 +32,15 @@ const turist_place_Schema = new Schema({
         sunday: [String],
         festives: [String],
     },
-    facilities: {
-        hotels: [String],
-        restaurants: [String],
-        parking: {
-            are_there_parking: true,
-            cost: 5000
-        }
+    hotels: [String],
+    restaurants: [String],
+    parking: {
+        are_there_parking: Boolean,
+        cost: Number
     },
     score: {
-        number_score: 2,
-        average: 4
+        number_score: Number,
+        average: Number
     },
     images: [String],
     comments: [
