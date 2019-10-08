@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const turistPlaces = require('./turist_places');
 const { Schema } = mongoose;
 
 const TuristSchema = new Schema({
@@ -13,7 +14,10 @@ const TuristSchema = new Schema({
     ubication: {
         department: String,
         city: String
-    }
+    },
+    visited_places: [
+        { type: Schema.Types.ObjectId, ref: 'Turist_places' }
+    ]
 });
 
 module.exports = mongoose.model('Turist', TuristSchema);

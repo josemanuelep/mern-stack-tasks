@@ -26,8 +26,8 @@ router.put('/:id', async (req, res) => {
 
 // ADD
 router.post('/', async (req, res) => {
-    const { name, last_name, mail, password, doc_type, doc_num, phone, img_profile } = req.body;
-    const turist = new Turist({ name, last_name, mail, password, doc_type, doc_num, phone, img_profile });
+    const { name, last_name, mail, password, doc_type, doc_num, phone, img_profile, ubication } = req.body;
+    const turist = new Turist({ name, last_name, mail, password, doc_type, doc_num, phone, img_profile, ubication });
     await turist.save();
     res.json({ status: 'Turist Saved' });
 });
