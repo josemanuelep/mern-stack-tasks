@@ -18,6 +18,7 @@ app.use(express.json());
 app.use('/api/tasks', require('./routes/task.routes'));
 app.use('/api/turists', require('./routes/turist.routes'));
 app.use('/api/places', require('./routes/turist_places.routes'));
+app.use('/api/entities', require('./routes/oficial_entity.routes'));
 
 // Static Files
 app.use(express.static(path.join(__dirname, 'public')));;

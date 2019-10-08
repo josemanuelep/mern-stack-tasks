@@ -39,3 +39,21 @@
     "images": ["img/loschorrtios.jpg"]
 }
 
+{
+    "name": "Policia Nacional",
+        "phone_number": "86542545",
+            "mail": "ponalabejorral@abejorral.gov.co",
+                "ubication": {
+        "department": "Antiquia",
+            "city": "Medellin",
+                "land": "",
+                    "corregimiento": ""
+    },
+    "in_charge": {
+        "position": "Teniente",
+            "names": "Jesus Maria",
+                "last_name": "Burgos",
+                    "phone_number": "3124554112"
+    },
+    "images": ["img/1.jpg", "img/2.jpg"]
+}
